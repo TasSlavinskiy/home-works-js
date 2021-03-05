@@ -102,3 +102,21 @@
         console.log("Good evening");
     }
 
+    switch (true) {
+        case (currentTime <= 5):
+            console.log("Good night");
+            break;
+        case (currentTime <= 11):
+            console.log("Good morning");
+            break;
+        case (currentTime <= 17): 
+            console.log("Good day");
+            break;
+        case (currentTime <= 23):
+            console.log("Good evening");
+            break;
+        default:
+            console.log("Incorrect date!")
+            break;
+    }
+
