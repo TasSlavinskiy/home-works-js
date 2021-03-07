@@ -62,6 +62,47 @@
 
 // the fifth task
 
+    function findUnique() {
+        let minValue = Math.min.apply(Math, arguments);
+        return minValue;
+    }
+
+    console.log(findUnique(12, 14, 4, -4, 0.2));
+
+// the sixth task
+
+    function findUnique(array) {
+        let result = new Set(array).size !== array.length;
+        (result === true) ? result = false : result = true;  
+        return result;
+    }
+
+    console.log(findUnique([1, 2, 3, 5, 3]));
+    console.log(findUnique([1, 2, 3, 5, 11]));
+
+//  the seventh task
+
+    function lastElem(array, numOfElem) {
+        let newArray = [];
+        let sliceArray = array.slice(-numOfElem);
+        for (const key in sliceArray) {
+            newArray.push(key);
+        }
+        newArray.push(array[array.length - 1]);
+        return newArray;
+    }
+
+    console.log(lastElem([3, 4, 10, -5]));     
+    console.log(lastElem([3, 4, 10, -5],2));   
+    console.log(lastElem([3, 4, 10, -5],8));
+
+//  the eighth task
+
+    function toUpperCase(str) {
+        return str.split(" ").map(e => e[0].toUpperCase() + e.slice(1)).join(" ");
+    }
+
+    console.log(toUpperCase("i love java script"));
 
     
 
