@@ -82,14 +82,22 @@
 
 //  the seventh task
 
+    // function lastElem(array, numOfElem) {
+    //     let newArray = [];
+    //     let sliceArray = array.slice(-numOfElem);
+    //     for (const key in sliceArray) {
+    //         newArray.push(key);
+    //     }
+    //     newArray.push(array[array.length - 1]);
+    //     return newArray;
+    // }
+
     function lastElem(array, numOfElem) {
-        let newArray = [];
-        let sliceArray = array.slice(-numOfElem);
-        for (const key in sliceArray) {
-            newArray.push(key);
+        if (numOfElem === undefined || numOfElem === 0 || numOfElem === null) {
+            return array.pop();
+        } else {
+            return array.slice(-numOfElem);
         }
-        newArray.push(array[array.length - 1]);
-        return newArray;
     }
 
     console.log(lastElem([3, 4, 10, -5]));     
