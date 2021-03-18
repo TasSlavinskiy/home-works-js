@@ -191,6 +191,8 @@
         let totalArea = 0;
         figures.reduce( (total, currentValue) => {
             totalArea = total + currentValue.getArea();
+            console.log(totalArea)
+            console.log(total)
             if (currentValue instanceof GeometricFigure) {
                 return console.log("Geometric figure: " + currentValue.toString() + " - area: " + currentValue.getArea());
             }
