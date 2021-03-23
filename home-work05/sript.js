@@ -99,10 +99,26 @@
         }
 
         showSalaryWithExperience() {
-            return console.log(this.fullName + ' salary: ' + ((this.dayRate * this.workingDays) * this.#experience));
+            return console.log(this.fullName + ' salary: ' + (this.dayRate * this.workingDays * this.#experience));
+        }
+
+        showSalaryWithExp() {
+            return this.dayRate * this.workingDays * this.#experience;
+        }
+
+        static sortSalaries(workersArray) {
+            let sortedSalary = workersArray.sort( (a, b) => {
+                return a.showSalaryWithExp() - b.showSalaryWithExp();
+            })
+
+            for (let i = 0; i < sortedSalary.length; i++) {
+                console.log(sortedSalary[i].fullName + ": " + sortedSalary[i].showSalaryWithExp());
+            }
         }
 
     }
+
+
 
     let worker1 = new Worker("John Johnson", 20, 23);
     console.log(worker1.fullName);                 
@@ -112,6 +128,7 @@
     worker1.experience = 1.5;
     console.log("New experience: " + worker1.experience);
     worker1.showSalaryWithExperience();
+    console.log("----------------------------------------------")
 
     let worker2 = new Worker("Tom Tomson", 48, 22);
     console.log(worker2.fullName);                 
@@ -121,6 +138,7 @@
     worker2.experience = 1.5;
     console.log("New experience: " + worker2.experience);
     worker2.showSalaryWithExperience();
+    console.log("----------------------------------------------")
 
     let worker3 = new Worker("Andy Ander", 29, 23);
     console.log(worker3.fullName);                 
@@ -130,6 +148,11 @@
     worker3.experience = 1.5;
     console.log("New experience: " + worker3.experience);
     worker3.showSalaryWithExperience();
+    console.log("----------------------------------------------")
+
+    let workersArray = [worker1, worker2, worker3];
+    console.log(Worker.sortSalaries(workersArray));
+    
 
     // the fifth task
 
@@ -149,16 +172,14 @@
     }
 
     class Triangle extends GeometricFigure {
-        constructor(sideA, sideB, sideC) {
+        constructor(sideA, sideB) {
             super('Triangle');
             this.sideA = sideA;
             this.sideB = sideB;
-            this.sideC = sideC;
         }
 
         getArea() {
-            let s = (this.sideA + this.sideB + this.sideC) / 2;
-            return Math.sqrt( s * ( s - this.sideA ) * ( s - this.sideB ) * ( s - this.sideC ));
+            return this.sideA * this.sideB / 2;
         }
     }
 
@@ -181,23 +202,19 @@
 
         getArea() {
             let r = this.diameter / 2;
-            return Math.PI * (r * r);
+            return Math.PI * r ** 2;
         }
     }
 
-    const figures = [new Triangle(4, 5, 5), new Square(7), new Circle(5)];
+    const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
 
     function handleFigures(figures) {
-        let totalArea = 0;
-        figures.reduce( (total, currentValue) => {
-            totalArea = total + currentValue.getArea();
-            console.log(totalArea)
-            console.log(total)
+        return figures.reduce( (total, currentValue) => {
             if (currentValue instanceof GeometricFigure) {
-                return console.log("Geometric figure: " + currentValue.toString() + " - area: " + currentValue.getArea());
+                console.log("Geometric figure: " + currentValue.toString() + " - area: " + currentValue.getArea());
+                return total + currentValue.getArea();
             }
-        });
-        return console.log("Total area: " + totalArea);
+        }, 0);
     }
 
     console.log(handleFigures(figures));
