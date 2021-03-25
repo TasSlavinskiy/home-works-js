@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+section {
+    width: 100% auto;
+    padding: 15px;
+}
+button {
+    padding: 2px;
+}
+#thirdTask {
+    margin: 0 auto;
+    text-align: center;
+}
+#fourthTask, #fifthTask, #sixthTask, #seventhTask {
+    max-width: 300px;
+}
+.drop-down-menu{
+    width: 50%;
+}
+#cities, #country {
+    width: 40%;
+    margin: 5px;
+} 
+.text-section {
+    border: 1px solid rgb(61, 59, 59);
+    padding: 10px;
+    width: 165px;
+    height: 100px;
+    overflow:auto; overflow-x:hidden;
+}
