@@ -45,4 +45,23 @@
         
         // the sixth task
 
+        function checkEmailSec(email) {
+            const regexp = /^[a-zA-Z0-9.'*+/=?^-_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            return (regexp.test(email)) ? "Email is correct!" : "Email is not correct!"
+        }
+
+        console.log(checkEmailSec("my_mail@gmail.com"))
+        console.log(checkEmailSec("#my_mail@gmail.com"))
+
+        //  the seventh task
+
+        function checkLogin(login) {
+            const regexp = /^[a-zA-Z0-9\.]{1, 9}$/;
+            const regexpNum = /[0-9\.]+/g;
+            return login + " is " + regexp.test(login) + " - " + login.match(regexpNum);
+        }
+
+        console.log(checkLogin('ee1.1ret3'))
+        console.log(checkLogin('ee1*1ret3'))
+
         
