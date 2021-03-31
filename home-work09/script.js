@@ -25,6 +25,26 @@
 
     // the third task
 
+    function mul(...rest) {
+        let tmp = 1
+        let count = 0
+
+        for (let i = 0; i <= rest.length; i++) {
+            if (typeof rest[i] === 'number') {
+                tmp *= rest[i]
+                count++
+            }
+        }
+
+        return (count === 0) ? count : tmp
+
+    }
+    
+    console.log(mul(1, "str", 2, 3, true)); // 6
+    console.log(mul(null, "str", false, true)); // 0
+
+    // the fourth task 
+
     let server = {
         data: 0,
         convertToString: (callback) => {
