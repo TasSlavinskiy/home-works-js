@@ -47,12 +47,31 @@
 
     // the third task
 
-    
-
     const delay = (i, time) => new Promise(resolve => setTimeout(() => resolve(i), time));
 
     function showNumbers() {
-        for (let i = 0; i < 10; i++) {
+        return new Promise((resolve) => {
+            let promise = Promise.resolve(0)
+            for (let i = 1; i <= 10; i+=1) {
+                promise = promise.then((result) => {
+                    console.log(result)
+                    return delay(i, Math.floor(Math.random() * 10001))
+                })
+            }
+            resolve(promise)
+        });
+    }
+
+    showNumbers()
+
+    // the fourth task 
+
+    async function showNumbersWithAsync() {
+        for (let i = 0; i <= 10; i++) {
+            await delay(i, Math.floor(Math.random() * 10001))
             console.log(i)
         }
     }
+
+    showNumbersWithAsync()
+
