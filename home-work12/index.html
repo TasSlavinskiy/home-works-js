@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Work 12</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        button {
+            display: block;
+            padding: 5px;
+        }
+        section {
+            padding: 10px;
+            width: 90%;
+            display: block;
+            margin: 0 auto;
+        }
+        .books_area {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="the_first_task">
+        <button id="button">Vote!</button>
+    </section>
+
+    <section class="the_second_task">
+        <button id="books" type="submit" value="Download books">Download books</button>
+        <div class="books_area"></div>
+    </section>
+    <script>
+    const voteButton = document.querySelector('#button')
+    const booksButton = document.querySelector('#books')
+    
+    voteButton.addEventListener('click', () => {
+        console.log('clicked')
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/vote', true)
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState != 4) return;
+
+            if(xhr.status != 200) {
+                alert('Error ' + xhr.status + ': ' + xhr.statusText)
+            }
+
+            voteButton.innerHTML = xhr.responseText
+        }
+
+        xhr.send()
+
+    })
+
+    booksButton.addEventListener('click', () => {
+        console.log('Book clicked')
+        let textareaBooks = document.querySelector('.books_area')
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('GET', 'books.json', true)
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState != 4) return;
+
+            booksButton.style.display = 'none'
+
+            if (xhr.status != 200) {
+                alert('Error ' + xhr.status + ': ' + xhr.statusText)
+            } else {
+                let books;
+                try {
+                    books = JSON.parse(xhr.responseText)
+                } catch (error) {
+                    alert(error.message)
+                }
+                books.forEach(book => {
+                    let someAuthor = textareaBooks.appendChild(document.createElement('p'))
+                    someAuthor.innerHTML = book.author
+                });
+            }
+
+            textareaBooks.style.display = 'block'
+        }
+
+        xhr.send()
+    })
+
+
+    </script>
+</body>
+</html>

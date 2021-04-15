@@ -1,0 +1,39 @@
+[
+        {
+            "author": "David Flanagan",
+            "country": "USA",
+            "language": "English",
+            "link": "https://www.amazon.com/JavaScript-Pocket-Reference-Activate-OReilly/dp/1449316859.\n",
+            "pages": 209,
+            "title": "JavaScript Pocket Reference",
+            "year": 2016
+        }, 
+        {
+            "author": "Kyle Simpson",
+            "country": "USA",
+            "language": "English",
+            "link": "https://www.amazon.com/You-Dont-Know-JS-Closures/dp/1449335586.\n",
+            "pages": 784,
+            "title": "You Don't Know JS: Scope & Closures",
+            "year": 2017
+        },
+        {
+            "author": "John Resig",
+            "country": "USA",
+            "language": "English",
+            "link": "https://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273.\n",
+            "pages": 502,
+            "title": "Pro JavaScript Techniques",
+            "year": 2008
+        }, 
+        {
+            "author": "Jeremy Keith",
+            "country": "USA",
+            "language": "English",
+            "link": "https://www.amazon.com/HTML5-Web-Designers-Jeremy-Keith/dp/0984442502.\n",
+            "pages": 318,
+            "title": "HTML5 for Web Designers",
+            "year": 2012
+        }
+    ]
+
